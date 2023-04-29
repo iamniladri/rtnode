@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 import path from "path";
 import {product_router}  from './routes/product/product'
  
- 
+ const PORT = process.env.PORT || 3030;
  
 const app = express();
  connect(); 
@@ -39,5 +39,5 @@ app.use(product_router)
    
   
  
-app.listen(3000);
-console.log("server listen at port 3000")
+app.listen(PORT);
+console.log("server listen at port "+PORT)

@@ -29,6 +29,7 @@ const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const path_1 = __importDefault(require("path"));
 const product_1 = require("./routes/product/product");
+const PORT = process.env.PORT || 3030;
 const app = express_1.default();
 database_1.connect();
 app.use(body_parser_1.default.urlencoded({ extended: false }));
@@ -40,5 +41,5 @@ app.get("/login", (req, res, next) => {
     res.status(200).sendFile(path_1.default.resolve(__dirname, 'public/html/', 'login.html'));
 });
 app.use(product_1.product_router);
-app.listen(3000);
-console.log("server listen at port 3000");
+app.listen(PORT);
+console.log("server listen at port " + PORT);
